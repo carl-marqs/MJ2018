@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://menu.gd" type="Script" id=1]
-[ext_resource path="res://Menu Provisório.png" type="Texture" id=2]
-[ext_resource path="res://TelaInicial.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://img/Menu Provisório.png" type="Texture" id=2]
+[ext_resource path="res://Musicas/TelaInicial.ogg" type="AudioStream" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,8 +17,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 5106.0
-margin/bottom = 3011.0
+margin/right = 3216.0
+margin/bottom = 1610.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
@@ -30,10 +30,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 280.0
-margin/top = 185.0
-margin/right = 694.0
-margin/bottom = 320.0
+margin/left = 172.0
+margin/top = 102.0
+margin/right = 437.0
+margin/bottom = 164.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -47,10 +47,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 274.0
-margin/top = 383.0
-margin/right = 688.0
-margin/bottom = 518.0
+margin/left = 162.0
+margin/top = 201.0
+margin/right = 439.0
+margin/bottom = 279.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

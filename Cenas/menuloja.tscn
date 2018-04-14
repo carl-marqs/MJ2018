@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://menuloja.gd" type="Script" id=1]
-[ext_resource path="res://Loja prov.png" type="Texture" id=2]
-[ext_resource path="res://Loja.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/menuloja.gd" type="Script" id=1]
+[ext_resource path="res://img/Loja prov.png" type="Texture" id=2]
+[ext_resource path="res://Musicas/Loja.ogg" type="AudioStream" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,8 +17,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 5128.0
-margin/bottom = 3007.0
+margin/right = 3195.0
+margin/bottom = 1617.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
@@ -30,10 +30,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 289.0
-margin/top = 461.0
-margin/right = 713.0
-margin/bottom = 573.0
+margin/left = 178.0
+margin/top = 253.0
+margin/right = 454.0
+margin/bottom = 309.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

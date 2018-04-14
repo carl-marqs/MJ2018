@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://menuloja.gd" type="Script" id=1]
-[ext_resource path="res://creditos.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/menuloja.gd" type="Script" id=1]
+[ext_resource path="res://img/creditos.png" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,8 +16,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 5128.0
-margin/bottom = 3007.0
+margin/right = 3204.0
+margin/bottom = 1630.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
@@ -29,10 +29,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 410.0
-margin/top = 495.0
-margin/right = 604.0
-margin/bottom = 579.0
+margin/left = 252.0
+margin/top = 282.0
+margin/right = 384.0
+margin/bottom = 321.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
