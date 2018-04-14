@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://menuloja.gd" type="Script" id=1]
 [ext_resource path="res://Loja prov.png" type="Texture" id=2]
+[ext_resource path="res://Loja.ogg" type="AudioStream" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,6 +39,17 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Começar"
 flat = false
+
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 3 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
