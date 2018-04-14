@@ -7,7 +7,7 @@ var rayNode
 func _ready():
 	set_process(true)
 	add_to_group('player')
-	rayNode = get_node('ray')
+	connect('body_enter', self, '_on_body_enter')
 
 func _process(delta):
 	var motion = Vector2()
@@ -38,3 +38,6 @@ func _process(delta):
 		
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move(motion)
+
+func _on_body_enter(other):
+	print('Ouch!!')
