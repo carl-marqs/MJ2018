@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Cenas/mobs/enemy_default.gd" type="Script" id=1]
-[ext_resource path="res://Cenas/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Cenas/Dog.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -14,9 +14,6 @@ _data = {
 
 curve = SubResource( 1 )
 script/script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="follow" type="PathFollow2D" parent="."]
 
@@ -29,9 +26,13 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Guarda" parent="follow" instance=ExtResource( 2 )]
+[node name="Enemy" parent="follow" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 3.362, 0.751907 )
-transform/rot = 90.4177
+transform/rot = 90.5912
+
+[node name="AnimatedSprite" parent="follow/Enemy"]
+
+frame = 0
 
 
+[editable path="follow/Enemy"]
