@@ -11,4 +11,4 @@ func _ready():
 	# Initialization here
 	pass
 func _process(delta):
-	follow.set_offset(follow.get_offset() + 100*delta)
+	follow.set_offset(follow.get_offset() + 120*delta)
