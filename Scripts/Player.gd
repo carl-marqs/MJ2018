@@ -6,6 +6,7 @@ var rayNode
 
 func _ready():
 	set_process(true)
+	add_to_group('player')
 	rayNode = get_node('ray')
 
 func _process(delta):
