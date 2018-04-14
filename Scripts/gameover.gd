@@ -5,4 +5,4 @@ extends Node2D
 # var b = "textvar"
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://menuloja.tscn")
+	get_tree().change_scene("res://Cenas/menuloja.tscn")

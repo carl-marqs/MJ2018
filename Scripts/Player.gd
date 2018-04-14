@@ -7,28 +7,32 @@ var rayNode
 func _ready():
 	set_process(true)
 	add_to_group('player')
-	connect('body_enter', self, '_on_body_enter')
+	rayNode = get_node('ray')
 
 func _process(delta):
 	var motion = Vector2()
 	
 	if Input.is_key_pressed(KEY_W) or Input.is_action_pressed('ui_up'):
 		motion += Vector2(0, -1)
+		rayNode.set_rotd(180)
 		get_node('sprite').set_rotd(180)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(180-90)
 	if Input.is_key_pressed(KEY_D) or Input.is_action_pressed('ui_right'):
 		motion += Vector2(1, 0)
+		rayNode.set_rotd(90)
 		get_node('sprite').set_rotd(90)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(90-90)
 	if Input.is_key_pressed(KEY_S) or Input.is_action_pressed('ui_down'):
 		motion += Vector2(0, 1)
+		rayNode.set_rotd(0)
 		get_node('sprite').set_rotd(0)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(0-90)
 	if Input.is_key_pressed(KEY_A) or Input.is_action_pressed('ui_left'):
 		motion += Vector2(-1, 0)
+		rayNode.set_rotd(270)
 		get_node('sprite').set_rotd(270)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(270-90)
@@ -38,6 +42,3 @@ func _process(delta):
 		
 	motion = motion.normalized() * MOTION_SPEED * delta
 	move(motion)
-
-func _on_body_enter(other):
-	print('Ouch!!')
