@@ -14,25 +14,21 @@ func _process(delta):
 	
 	if Input.is_key_pressed(KEY_W) or Input.is_action_pressed('ui_up'):
 		motion += Vector2(0, -1)
-		rayNode.set_rotd(180)
 		get_node('sprite').set_rotd(180)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(180-90)
 	if Input.is_key_pressed(KEY_D) or Input.is_action_pressed('ui_right'):
 		motion += Vector2(1, 0)
-		rayNode.set_rotd(90)
 		get_node('sprite').set_rotd(90)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(90-90)
 	if Input.is_key_pressed(KEY_S) or Input.is_action_pressed('ui_down'):
 		motion += Vector2(0, 1)
-		rayNode.set_rotd(0)
 		get_node('sprite').set_rotd(0)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(0-90)
 	if Input.is_key_pressed(KEY_A) or Input.is_action_pressed('ui_left'):
 		motion += Vector2(-1, 0)
-		rayNode.set_rotd(270)
 		get_node('sprite').set_rotd(270)
 		get_node('sprite').play('moving')
 		get_node('collision').set_rotd(270-90)
