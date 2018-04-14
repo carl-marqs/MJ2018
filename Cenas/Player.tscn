@@ -1,51 +1,97 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://img/score.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Dinheiro.gd" type="Script" id=3]
+[ext_resource path="res://img/icon.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Enemy_Vision.gd" type="Script" id=5]
+[ext_resource path="res://img/16x16.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+radius = 8.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 12.0
 
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 MOTION_SPEED = 200
 
 [node name="camera" type="Camera2D" parent="."]
 
 anchor_mode = 1
-rotating = false
-current = false
-zoom = Vector2( 1, 1 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
+rotating = true
+current = true
+zoom = Vector2( 0.8, 0.8 )
+limit/left = 0
+limit/top = 0
+limit/right = 2016
+limit/bottom = 1408
+drag_margin/h_enabled = false
+drag_margin/v_enabled = false
+smoothing/enable = true
+smoothing/speed = 4.0
+drag_margin/left = 0.1
+drag_margin/top = 0.1
+drag_margin/right = 0.1
+drag_margin/bottom = 0.1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="camera"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 2, 2 )
+
+[node name="coins_bg" type="Sprite" parent="camera/CanvasLayer"]
+
+transform/pos = Vector2( 288, 16 )
+texture = ExtResource( 2 )
+
+[node name="dinheiro" type="Label" parent="camera/CanvasLayer"]
+
+rect/scale = Vector2( 0.8, 0.8 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 276.0
+margin/top = 9.0
+margin/right = 316.0
+margin/bottom = 23.0
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 3 )
+dinheiro = 0
 
 [node name="sprite" type="Sprite" parent="."]
 
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+z/z = 1
+texture = ExtResource( 4 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
 
+transform/rot = 90.0
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -57,4 +103,28 @@ cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
 
+[node name="noise" type="Area2D" parent="."]
 
+transform/pos = Vector2( 32, 32 )
+transform/scale = Vector2( 2, 2 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -16, -16 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 5 )
+
+[node name="collision_noise" type="CollisionShape2D" parent="noise"]
+
+transform/pos = Vector2( -16, -16 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="sprite" type="Sprite" parent="noise/collision_noise"]
+
+z/relative = false
+texture = ExtResource( 6 )
