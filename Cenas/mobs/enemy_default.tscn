@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://mobs/enemy_default.gd" type="Script" id=1]
+[ext_resource path="res://img/icon.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, 142.85, 198.217, 0, 0, 0, 0, 676.449, 198.217, 0, 0, 0, 0, 676.449, 437.884, 0, 0, 0, 0, 142.85, 437.884, 0, 0, 0, 0, 142.85, 211.784 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Path2D" type="Path2D"]
+
+editor/display_folded = true
+curve = SubResource( 1 )
+script/script = ExtResource( 1 )
+
+[node name="follow" type="PathFollow2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 142.85, 198.217 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="follow"]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="follow/KinematicBody2D"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="follow/KinematicBody2D"]
+
+texture = ExtResource( 2 )
+
+
