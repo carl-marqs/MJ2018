@@ -1,17 +1,32 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://img/score.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Dinheiro.gd" type="Script" id=3]
-[ext_resource path="res://img/icon.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Enemy_Vision.gd" type="Script" id=5]
-[ext_resource path="res://img/16x16.png" type="Texture" id=6]
+[ext_resource path="res://img/principal/principal_03.png" type="Texture" id=4]
+[ext_resource path="res://img/principal/principal_01.png" type="Texture" id=5]
+[ext_resource path="res://img/principal/principal_02.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Enemy_Vision.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 8.0
-height = 16.0
+radius = 6.0
+height = 13.0
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "moving",
+"speed": 3.0
+} ]
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -31,7 +46,7 @@ script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-MOTION_SPEED = 200
+MOTION_SPEED = 120
 
 [node name="camera" type="Camera2D" parent="."]
 
@@ -83,11 +98,12 @@ max_lines_visible = -1
 script/script = ExtResource( 3 )
 dinheiro = 0
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="AnimatedSprite" parent="."]
 
-transform/scale = Vector2( 0.5, 0.5 )
 z/z = 1
-texture = ExtResource( 4 )
+frames = SubResource( 3 )
+animation = "moving"
+playing = true
 
 [node name="collision" type="CollisionShape2D" parent="."]
 
@@ -115,7 +131,7 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-script/script = ExtResource( 5 )
+script/script = ExtResource( 7 )
 
 [node name="collision_noise" type="CollisionShape2D" parent="noise"]
 
@@ -123,8 +139,3 @@ transform/pos = Vector2( -16, -16 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
-
-[node name="sprite" type="Sprite" parent="noise/collision_noise"]
-
-z/relative = false
-texture = ExtResource( 6 )
