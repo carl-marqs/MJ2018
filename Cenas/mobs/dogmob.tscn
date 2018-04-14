@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Cenas/mobs/enemy_default.gd" type="Script" id=1]
-[ext_resource path="res://Cenas/Dog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Cenas/mobs/mob_sprite/Dog.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -32,7 +32,7 @@ transform/rot = 90.5912
 
 [node name="AnimatedSprite" parent="follow/Enemy"]
 
-frame = 0
+frame = 2
 
 
 [editable path="follow/Enemy"]

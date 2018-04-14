@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://Cenas/mobs/enemy_default.gd" type="Script" id=1]
-[ext_resource path="res://Cenas/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Cenas/mobs/guarda.gd" type="Script" id=1]
+[ext_resource path="res://Cenas/mobs/mob_sprite/guard.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -10,13 +10,10 @@ _data = {
 "points": Vector2Array( 0, 0, 0, 0, 142.85, 198.217, 0, 0, 0, 0, 676.449, 198.217, 0, 0, 0, 0, 676.449, 437.884, 0, 0, 0, 0, 142.85, 437.884, 0, 0, 0, 0, 142.87, 198.367 )
 }
 
-[node name="Path2D" type="Path2D"]
+[node name="Path2Dguarda" type="Path2D"]
 
 curve = SubResource( 1 )
 script/script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="follow" type="PathFollow2D" parent="."]
 
@@ -29,9 +26,8 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Guarda" parent="follow" instance=ExtResource( 2 )]
+[node name="Enemy" parent="follow" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 3.362, 0.751907 )
-transform/rot = 90.4177
+transform/rot = 90.8693
 
 
